@@ -1,198 +1,844 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0c0d12">
-    <meta name="description" content="Portfólio de Luis Henrique, Web Developer. Trabalho com React, Next.js, TypeScript, Tailwind e Supabase para criar experiências digitais. Conheça meus projetos.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Portfólio de Luis Henrique, Web Developer. Trabalho com React, Next.js, TypeScript, Tailwind e Supabase para criar experiências digitais. Conheça meus projetos."
+    />
     <title>Luis Henrique — Desenvolvimento web</title>
-    <link rel="icon" href="Logotipoluis%20-%20Livian.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
-</head>
-<body>
+    <script>
+      try {
+        if (localStorage.getItem("portfolio-theme") === "light")
+          document.documentElement.dataset.theme = "light";
+        if (localStorage.getItem("portfolio-glow") === "off")
+          document.documentElement.dataset.glow = "off";
+        const savedLanguage = localStorage.getItem("portfolio-language");
+        if (["pt", "en", "es"].includes(savedLanguage))
+          document.documentElement.lang = { pt: "pt-BR", en: "en", es: "es" }[savedLanguage];
+      } catch {}
+    </script>
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/translations.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+  </head>
+  <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
-        <symbol id="icon-diagonal" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
-        <symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 20"/></symbol>
-        <symbol id="icon-shop" viewBox="0 0 24 24"><path d="M3 9h18l-2-6H5L3 9Zm1 0v12h16V9M9 21v-7h6v7M3 9c0 4 6 4 6 0 0 4 6 4 6 0 0 4 6 4 6 0"/></symbol>
-        <symbol id="icon-layout" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></symbol>
-        <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></symbol>
-        <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></symbol>
-        <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5"/></symbol>
-        <symbol id="tech-react" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="16" cy="16" rx="14" ry="5.5"/><ellipse cx="16" cy="16" rx="14" ry="5.5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="14" ry="5.5" transform="rotate(120 16 16)"/></g><circle cx="16" cy="16" r="2.5" fill="currentColor"/></symbol>
-        <symbol id="tech-next" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 23V9l17 19M22 9v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
-        <symbol id="tech-typescript" viewBox="0 0 32 32"><rect x="1" y="1" width="30" height="30" rx="4" fill="currentColor"/><path d="M7 16h10m-5-1v12m15-10c-4-3-8-1-7 2 1 2 7 2 7 5 0 3-5 4-8 1" fill="none" stroke="#0c0d12" stroke-width="2.4" stroke-linejoin="round"/></symbol>
-        <symbol id="tech-tailwind" viewBox="0 0 32 32"><path d="M16 7c-6 0-9 3-10 9 2-3 4-4 7-3 1.6.6 2.7 2.4 4.1 3.8C19.3 19 22 20 26 20c6 0 9-3 10-9-2 3-4 4-7 3-1.6-.6-2.7-2.4-4.1-3.8C22.7 8 20 7 16 7ZM6 16c-6 0-9 3-10 9 2-3 4-4 7-3 1.6.6 2.7 2.4 4.1 3.8C9.3 28 12 29 16 29c6 0 9-3 10-9-2 3-4 4-7 3-1.6-.6-2.7-2.4-4.1-3.8C12.7 17 10 16 6 16Z" fill="currentColor" transform="translate(4 0) scale(.75)"/></symbol>
-        <symbol id="tech-supabase" viewBox="0 0 32 32"><path d="M18 2 4 19h13V2Z" fill="currentColor"/><path d="M14 30 28 13H15v17Z" fill="currentColor" opacity=".65"/></symbol>
-        <symbol id="icon-burger" viewBox="0 0 24 24"><path d="M4 10c0-10 16-10 16 0H4Zm-1 4h18M4 18h16v2H4v-2Z"/><path d="m5 14 3 2 4-2 4 2 3-2M9 6h.01M15 6h.01"/></symbol>
-        <symbol id="icon-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="m8 8 13 13M8 16 21 3M12 12h.01"/></symbol>
+    <svg
+      class="icon-definitions"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14m-6-6 6 6-6 6" />
+      </symbol>
+      <symbol id="icon-diagonal" viewBox="0 0 24 24">
+        <path d="M6 18 18 6M6 6h12v12" />
+      </symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 20" />
+      </symbol>
+      <symbol id="icon-shop" viewBox="0 0 24 24">
+        <path
+          d="M3 9h18l-2-6H5L3 9Zm1 0v12h16V9M9 21v-7h6v7M3 9c0 4 6 4 6 0 0 4 6 4 6 0 0 4 6 4 6 0"
+        />
+      </symbol>
+      <symbol id="icon-layout" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="M3 9h18M9 9v11" />
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 6 9 7 9-7" />
+      </symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24">
+        <rect x="8" y="8" width="12" height="12" rx="2" />
+        <path d="M16 8V4H4v12h4" />
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24">
+        <path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5" />
+      </symbol>
+      <symbol id="tech-react" viewBox="0 0 32 32">
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <ellipse cx="16" cy="16" rx="14" ry="5.5" />
+          <ellipse
+            cx="16"
+            cy="16"
+            rx="14"
+            ry="5.5"
+            transform="rotate(60 16 16)"
+          />
+          <ellipse
+            cx="16"
+            cy="16"
+            rx="14"
+            ry="5.5"
+            transform="rotate(120 16 16)"
+          />
+        </g>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor" />
+      </symbol>
+      <symbol id="tech-next" viewBox="0 0 32 32">
+        <circle
+          cx="16"
+          cy="16"
+          r="14.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+        <path
+          d="M10 23V9l17 19M22 9v12"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="tech-typescript" viewBox="0 0 32 32">
+        <rect x="1" y="1" width="30" height="30" rx="4" fill="currentColor" />
+        <path
+          d="M7 16h10m-5-1v12m15-10c-4-3-8-1-7 2 1 2 7 2 7 5 0 3-5 4-8 1"
+          fill="none"
+          stroke="#0c0d12"
+          stroke-width="2.4"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="tech-tailwind" viewBox="0 0 32 32">
+        <path
+          d="M16 7c-6 0-9 3-10 9 2-3 4-4 7-3 1.6.6 2.7 2.4 4.1 3.8C19.3 19 22 20 26 20c6 0 9-3 10-9-2 3-4 4-7 3-1.6-.6-2.7-2.4-4.1-3.8C22.7 8 20 7 16 7ZM6 16c-6 0-9 3-10 9 2-3 4-4 7-3 1.6.6 2.7 2.4 4.1 3.8C9.3 28 12 29 16 29c6 0 9-3 10-9-2 3-4 4-7 3-1.6-.6-2.7-2.4-4.1-3.8C12.7 17 10 16 6 16Z"
+          fill="currentColor"
+          transform="translate(4 0) scale(.75)"
+        />
+      </symbol>
+      <symbol id="tech-supabase" viewBox="0 0 32 32">
+        <path d="M18 2 4 19h13V2Z" fill="currentColor" />
+        <path d="M14 30 28 13H15v17Z" fill="currentColor" opacity=".65" />
+      </symbol>
+      <symbol id="icon-burger" viewBox="0 0 24 24">
+        <path d="M4 10c0-10 16-10 16 0H4Zm-1 4h18M4 18h16v2H4v-2Z" />
+        <path d="m5 14 3 2 4-2 4 2 3-2M9 6h.01M15 6h.01" />
+      </symbol>
+      <symbol id="icon-scissors" viewBox="0 0 24 24">
+        <circle cx="6" cy="6" r="3" />
+        <circle cx="6" cy="18" r="3" />
+        <path d="m8 8 13 13M8 16 21 3M12 12h.01" />
+      </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+        />
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z" />
+      </symbol>
+      <symbol id="social-linkedin" viewBox="0 0 24 24">
+        <path
+          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.34 17.5v-7.2H5.95v7.2h2.39Zm-1.2-8.18a1.39 1.39 0 1 0 0-2.78 1.39 1.39 0 0 0 0 2.78Zm10.91 8.18v-3.94c0-2.11-1.13-3.09-2.63-3.09a2.27 2.27 0 0 0-2.05 1.13v-.97h-2.39v6.87h2.39v-3.81c0-1 .19-1.97 1.43-1.97s1.25 1.15 1.25 2.03v3.75h2Z"
+        />
+      </symbol>
+      <symbol id="social-github" viewBox="0 0 24 24">
+        <path
+          d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.14.69-3.8-1.33-3.8-1.33-.51-1.3-1.26-1.65-1.26-1.65-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.66 1.23 3.31.94.1-.73.4-1.23.72-1.52-2.51-.29-5.15-1.28-5.15-5.58 0-1.23.44-2.23 1.16-3.02-.12-.29-.5-1.44.11-2.99 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.13-1.45 3.08-1.15 3.08-1.15.61 1.55.23 2.7.11 2.99.72.79 1.16 1.79 1.16 3.02 0 4.31-2.65 5.28-5.17 5.57.41.35.77 1.04.77 2.1v3.09c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"
+        />
+      </symbol>
+      <symbol id="social-instagram" viewBox="0 0 24 24">
+        <rect
+          x="3"
+          y="3"
+          width="18"
+          height="18"
+          rx="5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+        <circle cx="17.5" cy="6.5" r="1.25" />
+      </symbol>
+      <symbol id="social-whatsapp" viewBox="0 0 24 24">
+        <path
+          d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.5-4.9a8.4 8.4 0 1 1 16-3.9Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M8.3 7.8c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4 0 .7.7 1.2 1.6 2.1 2.8 2.7.3.2.5.2.7-.1l.8-.9c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.5 0 .3-.2 1.3-.8 1.8-.5.5-1.2.7-2 .6-1.1-.2-2.5-.8-4.1-2.2-1.7-1.5-2.8-3.4-3.1-4.5-.3-1.1.1-1.9.5-2.2.4-.3.7-.4 1-.4Z"
+          fill="currentColor"
+        />
+      </symbol>
     </svg>
 
+    <div class="cursor-glow" aria-hidden="true"></div>
+
     <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="#inicio" aria-label="Luis Henrique, início">
-                <img src="Logotipoluis%20-%20Livian.png" alt="" width="38" height="38">
-                <span>Luis Henrique<span class="brand-dot">.</span><small>DESENVOLVEDOR WEB</small></span>
-            </a>
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Abrir menu"><span></span><span></span></button>
-            <nav id="navigation" class="navigation" aria-label="Navegação principal">
-                <a href="#inicio" aria-current="location">Início</a>
-                <a href="#especialidades">Especialidades</a>
-                <a href="#sobre">Sobre</a>
-                <a href="#projetos">Projetos</a>
-                <a class="nav-contact" href="#contato">Vamos conversar <svg class="icon"><use href="#icon-diagonal"/></svg></a>
-            </nav>
-        </div>
+      <div class="container header-inner">
+        <a class="brand" href="#inicio" aria-label="Luis Henrique, início">
+          <img
+            src="assets/images/logo-luis.png"
+            alt=""
+            width="38"
+            height="38"
+          />
+          <span
+            >Luis Henrique<span class="brand-dot">.</span
+            ><small>DESENVOLVEDOR WEB</small></span
+          >
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navigation"
+          aria-label="Abrir menu"
+        >
+          <span></span><span></span>
+        </button>
+        <nav
+          id="navigation"
+          class="navigation"
+          aria-label="Navegação principal"
+        >
+          <a href="#inicio" aria-current="location">Início</a>
+          <a href="#especialidades">Especialidades</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#projetos">Projetos</a>
+          <a class="nav-contact" href="#contato"
+            >Vamos conversar
+            <svg class="icon"><use href="#icon-diagonal" /></svg
+          ></a>
+          <div class="header-controls" aria-label="Preferências do site">
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              type="button"
+              aria-label="Ativar modo claro"
+              title="Ativar modo claro"
+            >
+              <svg class="icon" aria-hidden="true"><use href="#icon-sun" /></svg>
+            </button>
+            <button
+              class="glow-toggle"
+              id="glow-toggle"
+              type="button"
+              aria-label="Luz roxa do cursor"
+              aria-pressed="true"
+              title="Desativar luz roxa"
+            >
+              <svg class="icon" aria-hidden="true"><use href="#icon-star" /></svg>
+            </button>
+            <div class="language-switcher" id="language-switcher" role="group" aria-label="Seletor de idioma" data-active-language="pt">
+              <button type="button" data-language="pt" aria-label="Português" aria-pressed="true">PT</button>
+              <button type="button" data-language="en" aria-label="English" aria-pressed="false">ENG</button>
+              <button type="button" data-language="es" aria-label="Español" aria-pressed="false">ES</button>
+            </div>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <main id="conteudo">
-        <section class="hero container" id="inicio" aria-labelledby="hero-title">
-            <div class="hero-copy">
-                <p class="eyebrow"><span class="status-dot"></span> WEB DEVELOPER</p>
-                <h1 id="hero-title">Sua ideia.<br>Uma nova<br><span>realidade digital.</span></h1>
-                <p class="hero-description">Design que chama atenção. Experiências que fazem sentido. Transformo suas ideias em uma presença digital com personalidade.</p>
-                <p class="hero-stack">React <span aria-hidden="true">•</span> Next.js <span aria-hidden="true">•</span> TypeScript <span aria-hidden="true">•</span> Tailwind <span aria-hidden="true">•</span> Supabase</p>
-                <div class="hero-actions">
-                    <a class="button button-primary" href="#projetos">Explore meu trabalho <svg class="icon"><use href="#icon-arrow"/></svg></a>
-                    <a class="text-link" href="#contato">Vamos conversar <svg class="icon"><use href="#icon-diagonal"/></svg></a>
-                </div>
-                <div class="hero-note"><span class="note-line"></span> <span lang="en">Building digital experiences.</span></div>
-            </div>
-            <div class="hero-visual">
-                <span class="portrait-outline" aria-hidden="true"></span>
-                <div class="portrait-card">
-                    <img src="design.png" alt="Retrato de Luis Henrique" width="769" height="813" fetchpriority="high">
-                    <div class="portrait-caption"><span>LUIS HENRIQUE</span><span>DEV & CRIATIVO <svg class="icon"><use href="#icon-star"/></svg></span></div>
-                </div>
-                <ul class="floating-technologies" aria-label="Tecnologias com que trabalho">
-                    <li class="floating-tech tech-react"><svg class="tech-icon" aria-hidden="true"><use href="#tech-react"/></svg><span>React</span></li>
-                    <li class="floating-tech tech-next"><svg class="tech-icon" aria-hidden="true"><use href="#tech-next"/></svg><span>Next.js</span></li>
-                    <li class="floating-tech tech-typescript"><svg class="tech-icon" aria-hidden="true"><use href="#tech-typescript"/></svg><span>TypeScript</span></li>
-                    <li class="floating-tech tech-tailwind"><svg class="tech-icon" aria-hidden="true"><use href="#tech-tailwind"/></svg><span>Tailwind</span></li>
-                    <li class="floating-tech tech-supabase"><svg class="tech-icon" aria-hidden="true"><use href="#tech-supabase"/></svg><span>Supabase</span></li>
-                </ul>
-                <span class="visual-index" aria-hidden="true">01 / UM POUCO DE MIM</span>
-            </div>
-        </section>
-
-        <div class="skills-strip" aria-label="Tecnologias e foco de trabalho">
-            <div class="container skills-inner"><span>HTML <svg class="icon strip-star" aria-hidden="true"><use href="#icon-star"/></svg> CSS <svg class="icon strip-star" aria-hidden="true"><use href="#icon-star"/></svg> JavaScript</span><span>Design com propósito <svg class="icon strip-star" aria-hidden="true"><use href="#icon-star"/></svg> Desenvolvimento web</span></div>
+      <section class="hero container" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> WEB DEVELOPER</p>
+          <h1 id="hero-title">
+            Sua ideia.<br />Uma nova<br /><span>realidade digital.</span>
+          </h1>
+          <p class="hero-description">
+            Design que chama atenção. Experiências que fazem sentido. Transformo
+            suas ideias em uma presença digital com personalidade.
+          </p>
+          <p class="hero-stack">
+            React <span aria-hidden="true">•</span> Next.js
+            <span aria-hidden="true">•</span> TypeScript
+            <span aria-hidden="true">•</span> Tailwind
+            <span aria-hidden="true">•</span> Supabase
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projetos"
+              >Explore meu trabalho
+              <svg class="icon"><use href="#icon-arrow" /></svg
+            ></a>
+            <a class="text-link" href="#contato"
+              >Vamos conversar
+              <svg class="icon"><use href="#icon-diagonal" /></svg
+            ></a>
+          </div>
+          <div class="hero-note">
+            <span class="note-line"></span>
+            <span lang="en">Building digital experiences.</span>
+          </div>
         </div>
-
-        <section class="section container" id="especialidades" aria-labelledby="services-title">
-            <div class="section-heading">
-                <div><p class="eyebrow">01 — O QUE EU FAÇO</p><h2 id="services-title">Boas ideias merecem<br><span class="muted">uma boa execução.</span></h2></div>
-                <p>Do primeiro esboço ao último detalhe.<br>Soluções digitais pensadas para você.</p>
+        <div class="hero-visual">
+          <span class="portrait-outline" aria-hidden="true"></span>
+          <div class="portrait-card">
+            <img
+              src="assets/images/retrato-luis.png"
+              alt="Retrato de Luis Henrique"
+              width="769"
+              height="813"
+              fetchpriority="high"
+            />
+            <div class="portrait-caption">
+              <span>LUIS HENRIQUE</span
+              ><span
+                >DEV & CRIATIVO <svg class="icon"><use href="#icon-star" /></svg
+              ></span>
             </div>
-            <div class="services-grid">
-                <article class="service-card">
-                    <div class="service-top"><svg class="icon service-icon"><use href="#icon-code"/></svg><span>01</span></div>
-                    <h3>Websites</h3><p>Inovação e design para construir uma presença online que traduza a essência da sua marca.</p><span class="service-detail">IDENTIDADE & EXPERIÊNCIA</span>
-                </article>
-                <article class="service-card">
-                    <div class="service-top"><svg class="icon service-icon"><use href="#icon-shop"/></svg><span>02</span></div>
-                    <h3>Lojas virtuais</h3><p>Uma vitrine digital para valorizar seus produtos e tornar a jornada de compra mais intuitiva.</p><span class="service-detail">PRODUTOS & CONEXÕES</span>
-                </article>
-                <article class="service-card">
-                    <div class="service-top"><svg class="icon service-icon"><use href="#icon-layout"/></svg><span>03</span></div>
-                    <h3>Landing pages</h3><p>Páginas com uma mensagem clara, um visual marcante e foco em conectar sua ideia ao público certo.</p><span class="service-detail">ESTRATÉGIA & CONVERSÃO</span>
-                </article>
-            </div>
-        </section>
+          </div>
+          <ul
+            class="floating-technologies"
+            aria-label="Tecnologias com que trabalho"
+          >
+            <li class="floating-tech tech-react">
+              <svg class="tech-icon" aria-hidden="true">
+                <use href="#tech-react" /></svg
+              ><span>React</span>
+            </li>
+            <li class="floating-tech tech-next">
+              <svg class="tech-icon" aria-hidden="true">
+                <use href="#tech-next" /></svg
+              ><span>Next.js</span>
+            </li>
+            <li class="floating-tech tech-typescript">
+              <svg class="tech-icon" aria-hidden="true">
+                <use href="#tech-typescript" /></svg
+              ><span>TypeScript</span>
+            </li>
+            <li class="floating-tech tech-tailwind">
+              <svg class="tech-icon" aria-hidden="true">
+                <use href="#tech-tailwind" /></svg
+              ><span>Tailwind</span>
+            </li>
+            <li class="floating-tech tech-supabase">
+              <svg class="tech-icon" aria-hidden="true">
+                <use href="#tech-supabase" /></svg
+              ><span>Supabase</span>
+            </li>
+          </ul>
+          <span class="visual-index" aria-hidden="true"
+            >01 / UM POUCO DE MIM</span
+          >
+        </div>
+      </section>
 
-        <section class="about section container" id="sobre" aria-labelledby="about-title">
-            <div class="about-photo"><img src="imgluis.jpeg" alt="Luis Henrique ao ar livre" width="1734" height="3084" loading="lazy"><span class="photo-note">Além da tela, uma mente curiosa.</span></div>
-            <div class="about-copy">
-                <p class="eyebrow">02 — QUEM ESTÁ POR TRÁS</p>
-                <h2 id="about-title">Muito prazer,<br>sou Luis Henrique<span class="accent">.</span></h2>
-                <p>Sou estudante de Ciências e Tecnologia na UFRN e um entusiasta quando se trata de aprender novas tecnologias e aplicar em novos projetos.</p>
-                <p>Adoro desafios. A sensação de desbravar novas linguagens e técnicas me deixa muito empolgado. Criatividade, uma interface intuitiva e atenção aos detalhes fazem parte do meu jeito de trabalhar.</p>
-                <p>Trabalho com React, Next.js, TypeScript, Tailwind e Supabase para transformar ideias em experiências digitais.</p>
-                <p class="about-invitation">Me mande sua ideia. Vamos dar vida a ela.</p>
-                <div class="social-links" aria-label="Redes sociais">
-                    <a href="https://github.com/eurickzin" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon"><use href="#icon-diagonal"/></svg></a>
-                    <a href="https://www.linkedin.com/in/luis-henrique-ab11b3222/" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="icon"><use href="#icon-diagonal"/></svg></a>
-                    <a href="https://www.instagram.com/eurickzin/" target="_blank" rel="noopener noreferrer">Instagram <svg class="icon"><use href="#icon-diagonal"/></svg></a>
+      <div class="skills-strip" aria-label="Tecnologias e foco de trabalho">
+        <div class="container skills-inner">
+          <span
+            >HTML
+            <svg class="icon strip-star" aria-hidden="true">
+              <use href="#icon-star" />
+            </svg>
+            CSS
+            <svg class="icon strip-star" aria-hidden="true">
+              <use href="#icon-star" />
+            </svg>
+            JavaScript</span
+          ><span
+            >Design com propósito
+            <svg class="icon strip-star" aria-hidden="true">
+              <use href="#icon-star" />
+            </svg>
+            Desenvolvimento web</span
+          >
+        </div>
+      </div>
+
+      <section
+        class="section container"
+        id="especialidades"
+        aria-labelledby="services-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 — O QUE EU FAÇO</p>
+            <h2 id="services-title">
+              Boas ideias merecem<br /><span class="muted"
+                >uma boa execução.</span
+              >
+            </h2>
+          </div>
+          <p>
+            Do primeiro esboço ao último detalhe.<br />Soluções digitais
+            pensadas para você.
+          </p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-top">
+              <svg class="icon service-icon"><use href="#icon-code" /></svg
+              ><span>01</span>
+            </div>
+            <h3>Websites</h3>
+            <p>
+              Inovação e design para construir uma presença online que traduza a
+              essência da sua marca.
+            </p>
+            <span class="service-detail">IDENTIDADE & EXPERIÊNCIA</span>
+          </article>
+          <article class="service-card">
+            <div class="service-top">
+              <svg class="icon service-icon"><use href="#icon-shop" /></svg
+              ><span>02</span>
+            </div>
+            <h3>Lojas virtuais</h3>
+            <p>
+              Uma vitrine digital para valorizar seus produtos e tornar a
+              jornada de compra mais intuitiva.
+            </p>
+            <span class="service-detail">PRODUTOS & CONEXÕES</span>
+          </article>
+          <article class="service-card">
+            <div class="service-top">
+              <svg class="icon service-icon"><use href="#icon-layout" /></svg
+              ><span>03</span>
+            </div>
+            <h3>Landing pages</h3>
+            <p>
+              Páginas com uma mensagem clara, um visual marcante e foco em
+              conectar sua ideia ao público certo.
+            </p>
+            <span class="service-detail">ESTRATÉGIA & CONVERSÃO</span>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="about section container"
+        id="sobre"
+        aria-labelledby="about-title"
+      >
+        <div class="about-photo">
+          <img
+            src="assets/images/luis-ao-ar-livre.jpeg"
+            alt="Luis Henrique ao ar livre"
+            width="1734"
+            height="3084"
+            loading="lazy"
+          /><span class="photo-note">Além da tela, uma mente curiosa.</span>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">02 — QUEM ESTÁ POR TRÁS</p>
+          <h2 id="about-title">
+            Muito prazer,<br />sou Luis Henrique<span class="accent">.</span>
+          </h2>
+          <p>
+            Sou estudante de Ciências e Tecnologia na UFRN e um entusiasta
+            quando se trata de aprender novas tecnologias e aplicar em novos
+            projetos.
+          </p>
+          <p>
+            Adoro desafios. A sensação de desbravar novas linguagens e técnicas
+            me deixa muito empolgado. Criatividade, uma interface intuitiva e
+            atenção aos detalhes fazem parte do meu jeito de trabalhar.
+          </p>
+          <p>
+            Trabalho com React, Next.js, TypeScript, Tailwind e Supabase para
+            transformar ideias em experiências digitais.
+          </p>
+          <p class="about-invitation">
+            Me mande sua ideia. Vamos dar vida a ela.
+          </p>
+          <div class="social-links" aria-label="Redes sociais">
+            <a
+              href="https://github.com/eurickzin"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub <svg class="icon"><use href="#icon-diagonal" /></svg
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/luis-henrique-ab11b3222/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn <svg class="icon"><use href="#icon-diagonal" /></svg
+            ></a>
+            <a
+              href="https://instagram.com/rickzzinhu"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Instagram <svg class="icon"><use href="#icon-diagonal" /></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section projects-section"
+        id="projetos"
+        aria-labelledby="projects-title"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">03 — IDEIAS EM PRÁTICA</p>
+              <h2 id="projects-title">
+                Meu portfólio<span class="accent">.</span>
+              </h2>
+            </div>
+            <a
+              class="text-link"
+              href="https://github.com/eurickzin"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Mais no GitHub
+              <svg class="icon"><use href="#icon-diagonal" /></svg
+            ></a>
+          </div>
+          <div class="projects-grid">
+            <article class="project-card featured-project">
+              <div class="project-art portfolio-art" aria-hidden="true">
+                <div class="mini-browser">
+                  <div class="browser-bar">
+                    <i></i><i></i><i></i><span>luis henrique / portfolio</span>
+                  </div>
+                  <div class="mini-site">
+                    <span>CRIATIVIDADE + CÓDIGO</span
+                    ><strong>Ideias que<br />ganham <em>vida.</em></strong>
+                    <div class="mini-button"></div>
+                    <div class="mini-orbit">
+                      LH<svg class="icon"><use href="#icon-star" /></svg>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section projects-section" id="projetos" aria-labelledby="projects-title">
-            <div class="container">
-                <div class="section-heading"><div><p class="eyebrow">03 — IDEIAS EM PRÁTICA</p><h2 id="projects-title">Meu portfólio<span class="accent">.</span></h2></div><a class="text-link" href="https://github.com/eurickzin" target="_blank" rel="noopener noreferrer">Mais no GitHub <svg class="icon"><use href="#icon-diagonal"/></svg></a></div>
-                <div class="projects-grid">
-                    <article class="project-card featured-project">
-                        <div class="project-art portfolio-art" aria-hidden="true">
-                            <div class="mini-browser"><div class="browser-bar"><i></i><i></i><i></i><span>luis henrique / portfolio</span></div><div class="mini-site"><span>CRIATIVIDADE + CÓDIGO</span><strong>Ideias que<br>ganham <em>vida.</em></strong><div class="mini-button"></div><div class="mini-orbit">LH<svg class="icon"><use href="#icon-star"/></svg></div></div></div>
-                            <span class="project-status">PROJETO ATUAL</span>
-                        </div>
-                        <div class="project-info"><div><span class="project-category">DESIGN & DESENVOLVIMENTO</span><h3>Meu espaço na web</h3></div><a class="project-link" href="https://github.com/eurickzin/PORTFOLIO-RICK-DEV" target="_blank" rel="noopener noreferrer" aria-label="Ver código deste portfólio no GitHub"><svg class="icon"><use href="#icon-diagonal"/></svg></a></div>
-                        <p class="project-description">Este portfólio: um lugar para apresentar minhas ideias, meu trabalho e o que vem por aí.</p>
-                        <ul class="tags" aria-label="Tecnologias do portfólio"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-                    </article>
-                    <article class="project-card client-project">
-                        <div class="project-art client-art burger-art" aria-hidden="true">
-                            <div class="project-art-grid"></div>
-                            <span class="art-kicker">CARDÁPIO DIGITAL</span>
-                            <strong class="art-title">Pontilhão<br><em>Burguer.</em></strong>
-                            <svg class="icon art-symbol"><use href="#icon-burger"/></svg>
-                            <span class="art-caption">Sabor que também chega pela tela.</span>
-                        </div>
-                        <div class="project-info"><div><span class="project-category">GASTRONOMIA & EXPERIÊNCIA DIGITAL</span><h3>Pontilhão Burguer</h3></div><a class="project-link" href="https://pontilhaoburguer.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o cardápio digital Pontilhão Burguer em nova aba"><svg class="icon"><use href="#icon-diagonal"/></svg></a></div>
-                        <p class="project-description">Cardápio digital para apresentar os produtos da hamburgueria em uma experiência simples e acessível.</p>
-                        <a class="text-link project-visit" href="https://pontilhaoburguer.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Acessar projeto Pontilhão Burguer em nova aba">Acessar projeto <svg class="icon"><use href="#icon-diagonal"/></svg></a>
-                    </article>
-                    <article class="project-card client-project">
-                        <div class="project-art client-art barber-art" aria-hidden="true">
-                            <div class="project-art-grid"></div>
-                            <span class="art-kicker">AGENDAMENTO PARA BARBEARIA</span>
-                            <strong class="art-title">Na<br><em>Régua+</em></strong>
-                            <svg class="icon art-symbol"><use href="#icon-scissors"/></svg>
-                            <span class="art-caption">O próximo corte começa aqui.</span>
-                        </div>
-                        <div class="project-info"><div><span class="project-category">SERVIÇOS & AGENDAMENTO</span><h3>Na Régua+</h3></div><a class="project-link" href="https://sistemadeagendamento-barbearia.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Na Régua+, sistema de agendamento para barbearia, em nova aba"><svg class="icon"><use href="#icon-diagonal"/></svg></a></div>
-                        <p class="project-description">Sistema de agendamento para barbearia, pensado para facilitar a organização dos horários e a conexão com os clientes.</p>
-                        <a class="text-link project-visit" href="https://sistemadeagendamento-barbearia.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Acessar projeto Na Régua+ em nova aba">Acessar projeto <svg class="icon"><use href="#icon-diagonal"/></svg></a>
-                    </article>
-                    <article class="project-card client-project">
-                        <div class="project-art client-art nail-art" aria-hidden="true">
-                            <div class="nail-orbit"></div>
-                            <span class="art-kicker">NAIL DESIGNER</span>
-                            <strong class="art-title">Luciana<br><em>Correia.</em></strong>
-                            <svg class="icon art-symbol"><use href="#icon-star"/></svg>
-                            <span class="art-caption">Beleza em cada detalhe.</span>
-                        </div>
-                        <div class="project-info"><div><span class="project-category">BELEZA & PORTFÓLIO PROFISSIONAL</span><h3>Luciana Correia</h3></div><a class="project-link" href="https://desingdeunhas-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o portfólio de Luciana Correia, Nail Designer, em nova aba"><svg class="icon"><use href="#icon-diagonal"/></svg></a></div>
-                        <p class="project-description">Portfólio profissional de uma Nail Designer, com uma apresentação dedicada ao seu trabalho e à sua identidade.</p>
-                        <a class="text-link project-visit" href="https://desingdeunhas-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Acessar projeto Luciana Correia Nail Designer em nova aba">Acessar projeto <svg class="icon"><use href="#icon-diagonal"/></svg></a>
-                    </article>
+                <span class="project-status">PROJETO ATUAL</span>
+              </div>
+              <div class="project-info">
+                <div>
+                  <span class="project-category">DESIGN & DESENVOLVIMENTO</span>
+                  <h3>Meu espaço na web</h3>
                 </div>
-            </div>
-        </section>
+                <a
+                  class="project-link"
+                  href="https://github.com/eurickzin/PORTFOLIO-RICK-DEV"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver código deste portfólio no GitHub"
+                  ><svg class="icon"><use href="#icon-diagonal" /></svg
+                ></a>
+              </div>
+              <p class="project-description">
+                Este portfólio: um lugar para apresentar minhas ideias, meu
+                trabalho e o que vem por aí.
+              </p>
+              <ul class="tags" aria-label="Tecnologias do portfólio">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+              </ul>
+            </article>
+            <article class="project-card client-project">
+              <div class="project-art client-art burger-art" aria-hidden="true">
+                <div class="project-art-grid"></div>
+                <span class="art-kicker">CARDÁPIO DIGITAL</span>
+                <strong class="art-title"
+                  >Pontilhão<br /><em>Burguer.</em></strong
+                >
+                <svg class="icon art-symbol"><use href="#icon-burger" /></svg>
+                <span class="art-caption"
+                  >Sabor que também chega pela tela.</span
+                >
+              </div>
+              <div class="project-info">
+                <div>
+                  <span class="project-category"
+                    >GASTRONOMIA & EXPERIÊNCIA DIGITAL</span
+                  >
+                  <h3>Pontilhão Burguer</h3>
+                </div>
+                <a
+                  class="project-link"
+                  href="https://pontilhaoburguer.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir o cardápio digital Pontilhão Burguer em nova aba"
+                  ><svg class="icon"><use href="#icon-diagonal" /></svg
+                ></a>
+              </div>
+              <p class="project-description">
+                Cardápio digital para apresentar os produtos da hamburgueria em
+                uma experiência simples e acessível.
+              </p>
+              <a
+                class="text-link project-visit"
+                href="https://pontilhaoburguer.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Acessar projeto Pontilhão Burguer em nova aba"
+                >Acessar projeto
+                <svg class="icon"><use href="#icon-diagonal" /></svg
+              ></a>
+            </article>
+            <article class="project-card client-project">
+              <div class="project-art client-art barber-art" aria-hidden="true">
+                <div class="project-art-grid"></div>
+                <span class="art-kicker">AGENDAMENTO PARA BARBEARIA</span>
+                <strong class="art-title">Na<br /><em>Régua+</em></strong>
+                <svg class="icon art-symbol"><use href="#icon-scissors" /></svg>
+                <span class="art-caption">O próximo corte começa aqui.</span>
+              </div>
+              <div class="project-info">
+                <div>
+                  <span class="project-category">SERVIÇOS & AGENDAMENTO</span>
+                  <h3>Na Régua+</h3>
+                </div>
+                <a
+                  class="project-link"
+                  href="https://sistemadeagendamento-barbearia.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir Na Régua+, sistema de agendamento para barbearia, em nova aba"
+                  ><svg class="icon"><use href="#icon-diagonal" /></svg
+                ></a>
+              </div>
+              <p class="project-description">
+                Sistema de agendamento para barbearia, pensado para facilitar a
+                organização dos horários e a conexão com os clientes.
+              </p>
+              <a
+                class="text-link project-visit"
+                href="https://sistemadeagendamento-barbearia.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Acessar projeto Na Régua+ em nova aba"
+                >Acessar projeto
+                <svg class="icon"><use href="#icon-diagonal" /></svg
+              ></a>
+            </article>
+            <article class="project-card client-project">
+              <div class="project-art client-art nail-art" aria-hidden="true">
+                <div class="nail-orbit"></div>
+                <span class="art-kicker">NAIL DESIGNER</span>
+                <strong class="art-title"
+                  >Luciana<br /><em>Correia.</em></strong
+                >
+                <svg class="icon art-symbol"><use href="#icon-star" /></svg>
+                <span class="art-caption">Beleza em cada detalhe.</span>
+              </div>
+              <div class="project-info">
+                <div>
+                  <span class="project-category"
+                    >BELEZA & PORTFÓLIO PROFISSIONAL</span
+                  >
+                  <h3>Luciana Correia</h3>
+                </div>
+                <a
+                  class="project-link"
+                  href="https://desingdeunhas-portfolio.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir o portfólio de Luciana Correia, Nail Designer, em nova aba"
+                  ><svg class="icon"><use href="#icon-diagonal" /></svg
+                ></a>
+              </div>
+              <p class="project-description">
+                Portfólio profissional de uma Nail Designer, com uma
+                apresentação dedicada ao seu trabalho e à sua identidade.
+              </p>
+              <a
+                class="text-link project-visit"
+                href="https://desingdeunhas-portfolio.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Acessar projeto Luciana Correia Nail Designer em nova aba"
+                >Acessar projeto
+                <svg class="icon"><use href="#icon-diagonal" /></svg
+              ></a>
+            </article>
+          </div>
+        </div>
+      </section>
 
-        <section class="section contact container" id="contato" aria-labelledby="contact-title">
-            <div class="contact-copy">
-                <p class="eyebrow">04 — VAMOS CRIAR ALGO?</p>
-                <h2 id="contact-title">Sua próxima ideia<br>começa com um<br><span class="accent">olá.</span><svg class="icon contact-star" aria-hidden="true"><use href="#icon-star"/></svg></h2>
-                <p>Tem um projeto em mente ou quer trocar uma ideia?<br>Vou adorar saber mais.</p>
-                <div class="email-row"><a href="mailto:luisrickpg9@gmail.com">luisrickpg9@gmail.com</a><button id="copy-email" type="button" aria-label="Copiar endereço de e-mail" hidden><svg class="icon"><use href="#icon-copy"/></svg></button></div>
-                <p id="copy-status" class="copy-status" role="status"></p>
-                <div class="social-links"><a href="https://github.com/eurickzin" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon"><use href="#icon-diagonal"/></svg></a><a href="https://www.linkedin.com/in/luis-henrique-ab11b3222/" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="icon"><use href="#icon-diagonal"/></svg></a></div>
+      <section
+        class="section contact container"
+        id="contato"
+        aria-labelledby="contact-title"
+      >
+        <div class="contact-copy">
+          <p class="eyebrow">04 — VAMOS CRIAR ALGO?</p>
+          <h2 id="contact-title">
+            Sua próxima ideia<br />começa com um<br /><span class="accent"
+              >olá.</span
+            ><svg class="icon contact-star" aria-hidden="true">
+              <use href="#icon-star" />
+            </svg>
+          </h2>
+          <p>
+            Tem um projeto em mente ou quer trocar uma ideia?<br />Vou adorar
+            saber mais.
+          </p>
+          <div class="email-row">
+            <a href="mailto:luisrickpg9@gmail.com"
+              ><svg class="icon email-icon" aria-hidden="true">
+                <use href="#icon-mail" /></svg
+              >luisrickpg9@gmail.com</a
+            ><button
+              id="copy-email"
+              type="button"
+              aria-label="Copiar endereço de e-mail"
+              hidden
+            >
+              <svg class="icon"><use href="#icon-copy" /></svg>
+            </button>
+          </div>
+          <p id="copy-status" class="copy-status" role="status"></p>
+          <div class="social-links" aria-label="Links de contato e redes sociais">
+            <a
+              href="https://github.com/eurickzin"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="social-brand-icon" aria-hidden="true">
+                <use href="#social-github" /></svg
+              >GitHub <svg class="icon"><use href="#icon-diagonal" /></svg></a
+            ><a
+              href="https://www.linkedin.com/in/luis-henrique-ab11b3222/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="social-brand-icon" aria-hidden="true">
+                <use href="#social-linkedin" /></svg
+              >LinkedIn <svg class="icon"><use href="#icon-diagonal" /></svg></a
+            ><a
+              href="https://wa.me/5584999466235?text=Ol%C3%A1%2C%20Luis!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="social-brand-icon" aria-hidden="true">
+                <use href="#social-whatsapp" /></svg
+              >WhatsApp <svg class="icon"><use href="#icon-diagonal" /></svg
+            ></a>
+          </div>
+        </div>
+        <form
+          id="contact-form"
+          action="https://formsubmit.co/ajax/luisrickpg9@gmail.com"
+          method="post"
+        >
+          <div class="form-top">
+            <span>Me conte sobre sua ideia</span
+            ><svg class="icon"><use href="#icon-mail" /></svg>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Seu nome</label
+              ><input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Como posso te chamar?"
+                autocomplete="name"
+                maxlength="100"
+                required
+              />
             </div>
-            <form id="contact-form" action="mailto:luisrickpg9@gmail.com" method="post" enctype="text/plain">
-                <div class="form-top"><span>Me conte sobre sua ideia</span><svg class="icon"><use href="#icon-mail"/></svg></div>
-                <div class="form-row"><div class="form-field"><label for="name">Seu nome</label><input id="name" name="name" type="text" placeholder="Como posso te chamar?" autocomplete="name" maxlength="100" required></div><div class="form-field"><label for="email">Seu e-mail</label><input id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" maxlength="254" required></div></div>
-                <div class="form-field"><label for="phone">Celular <span>(opcional)</span></label><input id="phone" name="phone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" maxlength="30"></div>
-                <div class="form-field"><label for="message">Sua ideia</label><textarea id="message" name="message" rows="4" placeholder="Um pouco sobre o projeto que você tem em mente…" maxlength="2000" required></textarea></div>
-                <button class="button button-primary" type="submit">Preparar e-mail <svg class="icon"><use href="#icon-diagonal"/></svg></button>
-                <p class="form-note">Abre seu aplicativo de e-mail com a mensagem preenchida.</p>
-                <p id="form-status" class="form-status" role="status"></p>
-            </form>
-        </section>
+            <div class="form-field">
+              <label for="email">Seu e-mail</label
+              ><input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="voce@exemplo.com"
+                autocomplete="email"
+                maxlength="254"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="phone">Celular <span>(opcional)</span></label
+            ><input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="(00) 00000-0000"
+              autocomplete="tel"
+              maxlength="30"
+            />
+          </div>
+          <div class="form-field">
+            <label for="message">Sua ideia</label
+            ><textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Um pouco sobre o projeto que você tem em mente…"
+              maxlength="2000"
+              required
+            ></textarea>
+          </div>
+          <input
+            type="hidden"
+            name="_subject"
+            value="Nova mensagem pelo portfólio"
+          />
+          <input type="hidden" name="_template" value="table" />
+          <input
+            type="text"
+            name="_honey"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+            hidden
+          />
+          <button class="button button-primary" type="submit">
+            Enviar mensagem
+            <svg class="icon"><use href="#icon-diagonal" /></svg>
+          </button>
+          <p class="form-note">
+            Sua mensagem será enviada diretamente para o meu e-mail.
+          </p>
+          <p id="form-status" class="form-status" role="status"></p>
+        </form>
+      </section>
     </main>
 
-    <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="#inicio"><img src="Logotipoluis%20-%20Livian.png" alt="" width="30" height="30"><span>Luis Henrique<span class="brand-dot">.</span></span></a><p>Feito com criatividade e algumas linhas de código.</p><a class="back-top" href="#inicio">Voltar ao topo <svg class="icon"><use href="#icon-diagonal"/></svg></a></div></footer>
-</body>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand footer-brand" href="#inicio"
+          ><img
+            src="assets/images/logo-luis.png"
+            alt=""
+            width="30"
+            height="30"
+          /><span>Luis Henrique<span class="brand-dot">.</span></span></a
+        >
+        <p>Feito com criatividade e algumas linhas de código.</p>
+        <div class="footer-social-links" aria-label="Redes sociais">
+          <a
+            href="https://www.linkedin.com/in/luis-henrique-ab11b3222/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><svg><use href="#social-linkedin" /></svg></a
+          ><a
+            href="https://instagram.com/rickzzinhu"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><svg><use href="#social-instagram" /></svg></a
+          ><a
+            href="https://wa.me/5584999466235?text=Ol%C3%A1%2C%20Luis!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Conversar pelo WhatsApp"
+            ><svg><use href="#social-whatsapp" /></svg
+          ></a>
+        </div>
+        <a class="back-top" href="#inicio" aria-label="Voltar ao topo"
+          >Voltar ao topo <svg class="icon"><use href="#icon-diagonal" /></svg
+        ></a>
+      </div>
+    </footer>
+  </body>
 </html>
