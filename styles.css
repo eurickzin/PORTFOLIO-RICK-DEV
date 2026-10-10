@@ -60,6 +60,8 @@ a, button { touch-action: manipulation; }
 .hero h1 { font-size: clamp(48px, 5.15vw, 72px); letter-spacing: -.065em; font-weight: 700; line-height: 1.08; }
 .hero h1 > span { color: var(--accent); white-space: nowrap; }
 .hero-description { max-width: 425px; color: var(--muted); font-size: 15px; line-height: 1.8; margin-top: 27px; }
+.hero-stack { max-width: 460px; margin-top: 15px; color: #cec6e1; font-size: 12px; line-height: 1.9; }
+.hero-stack > span { color: var(--accent); margin-inline: 5px; }
 .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 30px; }
 .hero-note { color: #9493a5; font-size: 10px; letter-spacing: .035em; margin-top: 44px; display: flex; align-items: center; gap: 10px; }
 .note-line { height: 1px; width: 27px; background: #727080; }
@@ -71,9 +73,19 @@ a, button { touch-action: manipulation; }
 .portrait-caption { display: flex; justify-content: space-between; align-items: center; position: absolute; bottom: 0; inset-inline: 0; background: linear-gradient(transparent, #171225e6); padding: 36px 18px 20px; font-size: 8px; font-weight: 650; letter-spacing: .12em; }
 .portrait-caption > span:last-child { display: flex; align-items: center; gap: 8px; }
 .portrait-caption .icon { width: 15px; height: 15px; color: #d4c4ff; }
-.code-badge { position: absolute; top: 61px; right: -25px; display: flex; align-items: center; gap: 12px; background: #1c1b27; border: 1px solid #44404e; box-shadow: 0 12px 28px #0003; padding: 13px 17px; border-radius: 9px; transform: rotate(8deg); }
-.code-badge .icon { color: var(--accent); }
-.code-badge span { font-size: 10px; font-family: ui-monospace, monospace; }
+.floating-technologies { list-style: none; padding: 0; margin: 0; }
+.floating-tech { position: absolute; z-index: 2; display: flex; align-items: center; gap: 9px; padding: 11px 13px; border: 1px solid #5d536c; border-radius: 10px; background: #181721f5; box-shadow: 0 10px 26px #0004; font-size: 10px; font-weight: 600; color: var(--text); animation: tech-float 5s ease-in-out infinite; }
+.tech-icon { width: 28px; height: 28px; flex-shrink: 0; }
+.tech-react { right: -18px; top: 80px; --tech-angle: 6deg; animation-delay: -.8s; }
+.tech-react .tech-icon { color: #61dafb; }
+.tech-next { left: -20px; top: 183px; --tech-angle: -5deg; animation-delay: -2.4s; }
+.tech-next .tech-icon { color: #f5f3ff; }
+.tech-typescript { left: -12px; top: 26px; --tech-angle: -6deg; animation-delay: -1.6s; }
+.tech-typescript .tech-icon { color: #54a9ff; }
+.tech-tailwind { right: -18px; top: 277px; --tech-angle: 5deg; animation-delay: -3.2s; }
+.tech-tailwind .tech-icon { color: #38bdf8; }
+.tech-supabase { left: -12px; bottom: 49px; --tech-angle: -4deg; animation-delay: -4s; }
+.tech-supabase .tech-icon { color: #3ecf8e; }
 .visual-index { position: absolute; bottom: 0; left: 20px; font-size: 8px; color: var(--muted); letter-spacing: .17em; }
 .skills-strip { border-block: 1px solid var(--line); }
 .skills-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 22px; }
@@ -111,7 +123,8 @@ h2 { font-size: clamp(30px, 3.2vw, 43px); letter-spacing: -.05em; font-weight: 6
 
 /* Projetos */
 .projects-section { background: #101117; border-block: 1px solid var(--line); }
-.projects-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 30px; }
+.projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 42px 30px; }
+.project-card { min-width: 0; }
 .project-art { height: 290px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 10px; border: 1px solid #ffffff0b; }
 .portfolio-art { background: #252037; padding: 34px 35px 0; }
 .project-status { position: absolute; bottom: 16px; left: 17px; font-size: 8px; letter-spacing: .13em; padding: 5px 10px; border-radius: 4px; background: #181521d9; border: 1px solid #ffffff15; color: #e1d5ff; }
@@ -144,6 +157,21 @@ h2 { font-size: clamp(30px, 3.2vw, 43px); letter-spacing: -.05em; font-weight: 6
 .tags li { font-size: 9px; color: #b9b4c8; border: 1px solid #31303d; border-radius: 4px; padding: 3px 9px; }
 .coming-soon { display: inline-flex; gap: 8px; align-items: center; color: #afb5c6; font-size: 10px; margin-top: 21px; }
 .coming-soon .small-dot { background: #8394b9; width: 5px; height: 5px; }
+.client-art { --project-accent: #f2b06f; background: #302016; padding: 36px; flex-direction: column; align-items: flex-start; justify-content: center; }
+.burger-art { background: linear-gradient(135deg, #342013, #1e1815); }
+.barber-art { --project-accent: #93cbbc; background: linear-gradient(135deg, #17332e, #111d1b); }
+.nail-art { --project-accent: #edb5ce; background: linear-gradient(135deg, #33202d, #1c1720); }
+.project-art-grid { position: absolute; inset: 0; background-image: linear-gradient(#ffffff07 1px, transparent 1px), linear-gradient(90deg, #ffffff07 1px, transparent 1px); background-size: 32px 32px; mask-image: linear-gradient(90deg, transparent, #000); }
+.art-kicker { position: relative; z-index: 1; font-size: 8px; letter-spacing: .16em; color: var(--project-accent); }
+.art-title { position: relative; z-index: 1; font-size: clamp(32px, 3.5vw, 46px); line-height: 1.05; letter-spacing: -.055em; font-weight: 600; margin-top: 16px; }
+.art-title em { color: var(--project-accent); font-style: normal; }
+.art-symbol { position: absolute; right: 34px; top: 78px; width: 88px; height: 88px; color: var(--project-accent); opacity: .6; stroke-width: 1; transform: rotate(-12deg); transition: transform .3s; }
+.client-project:hover .art-symbol { transform: rotate(-5deg) translateY(-4px); }
+.art-caption { position: relative; z-index: 1; font-size: 10px; color: #ded4df; margin-top: 20px; }
+.nail-orbit { position: absolute; right: -10px; top: -36px; width: 245px; height: 325px; border: 1px solid #edb5ce26; border-radius: 50%; transform: rotate(32deg); }
+.nail-orbit::after { content: ""; position: absolute; inset: 24px; border: 1px solid #edb5ce1c; border-radius: inherit; }
+.project-visit { min-height: 44px; margin-top: 12px; color: var(--accent); }
+.project-visit .icon { width: 17px; height: 17px; }
 
 /* Contato e rodapé */
 .contact { display: grid; grid-template-columns: 1fr 1.05fr; gap: 90px; align-items: start; padding-block: 100px; }
@@ -181,6 +209,7 @@ form .button { width: 100%; justify-content: space-between; min-height: 47px; fo
 .back-top .icon { width: 16px; height: 16px; }
 .back-top:hover { color: var(--accent); }
 @keyframes arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes tech-float { 0%, 100% { transform: translateY(0) rotate(var(--tech-angle, 0deg)); } 50% { transform: translateY(-8px) rotate(var(--tech-angle, 0deg)); } }
 
 /* Tablet e celular */
 @media (min-width: 1500px) { .hero { padding-block: 105px; } }
@@ -192,7 +221,10 @@ form .button { width: 100%; justify-content: space-between; min-height: 47px; fo
     .hero h1 { font-size: clamp(46px, 5.2vw, 57px); }
     .portrait-card > img { height: 375px; }
     .hero-visual::before { inset-inline: -16px; }
-    .code-badge { right: -7px; }
+    .tech-react, .tech-tailwind { right: -7px; }
+    .tech-next { left: -10px; }
+    .tech-typescript, .tech-supabase { left: -5px; }
+    .tech-tailwind { top: 245px; }
     .skills-inner > span { gap: 19px; font-size: 10px; }
     .about { gap: 60px; }
     .contact { gap: 45px; }
@@ -219,8 +251,12 @@ form .button { width: 100%; justify-content: space-between; min-height: 47px; fo
     .hero-actions .button { font-size: 11px; padding-inline: 14px; gap: 12px; }
     .hero-actions .text-link { font-size: 11px; }
     .portrait-card > img { height: 340px; }
-    .code-badge { padding: 10px 12px; right: -3px; }
-    .code-badge span { font-size: 8px; }
+    .floating-tech { padding: 9px 10px; gap: 6px; font-size: 9px; }
+    .tech-icon { width: 24px; height: 24px; }
+    .tech-react, .tech-tailwind { right: -3px; }
+    .tech-next { top: 160px; left: -3px; }
+    .tech-tailwind { top: 234px; }
+    .tech-supabase { bottom: 43px; }
     .portrait-caption { font-size: 6px; padding-inline: 13px; }
     .hero-visual::before { inset-inline: 0; }
     .hero-note { margin-top: 24px; font-size: 9px; }
@@ -237,6 +273,11 @@ form .button { width: 100%; justify-content: space-between; min-height: 47px; fo
     .about-copy > p:not(.eyebrow) { font-size: 12px; }
     .projects-grid { gap: 22px; grid-template-columns: 1fr 1fr; }
     .project-art { height: 240px; }
+    .client-art { padding: 24px; }
+    .art-kicker { max-width: 185px; font-size: 7px; }
+    .art-title { font-size: 33px; }
+    .art-symbol { width: 50px; height: 50px; right: 20px; top: 74px; opacity: .35; }
+    .art-caption { max-width: 180px; font-size: 9px; }
     .portfolio-art { padding: 24px 18px 0; }
     .mini-site { padding: 22px 14px; }
     .mini-site > strong { font-size: 25px; }
@@ -266,8 +307,13 @@ form .button { width: 100%; justify-content: space-between; min-height: 47px; fo
     .hero-note { margin-top: 25px; }
     .hero-visual { max-width: 305px; padding: 12px 12px 28px; }
     .portrait-card > img { height: 325px; }
-    .code-badge { right: -1px; top: 65px; padding: 12px 15px; }
-    .code-badge span { font-size: 9px; }
+    .hero-stack { font-size: 11px; }
+    .hero-stack > span { margin-inline: 3px; }
+    .tech-react { top: 70px; right: -7px; }
+    .tech-typescript { left: -5px; }
+    .tech-next { top: 159px; left: -7px; }
+    .tech-tailwind { top: 235px; right: -7px; }
+    .tech-supabase { left: -5px; bottom: 43px; }
     .portrait-caption { font-size: 7px; }
     .portrait-outline { inset: 0 0 35px 10px; }
     .skills-inner { padding-block: 20px; gap: 9px; }
@@ -292,6 +338,9 @@ form .button { width: 100%; justify-content: space-between; min-height: 47px; fo
     .projects-section .section-heading { gap: 8px; }
     .projects-grid { grid-template-columns: 1fr; gap: 35px; }
     .project-art { height: 260px; }
+    .client-art { padding: 30px; }
+    .art-title { font-size: 38px; }
+    .art-symbol { width: 62px; height: 62px; right: 22px; top: 76px; }
     .portfolio-art { padding-inline: 26px; }
     .mini-site { padding: 26px 22px; }
     .mini-site > strong { font-size: 30px; }

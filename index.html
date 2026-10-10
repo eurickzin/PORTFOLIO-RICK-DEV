@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0c0d12">
-    <meta name="description" content="Portfólio de Luis Henrique. Desenvolvimento de websites, lojas virtuais e landing pages com criatividade e atenção aos detalhes.">
+    <meta name="description" content="Portfólio de Luis Henrique, Web Developer. Trabalho com React, Next.js, TypeScript, Tailwind e Supabase para criar experiências digitais. Conheça meus projetos.">
     <title>Luis Henrique — Desenvolvimento web</title>
     <link rel="icon" href="Logotipoluis%20-%20Livian.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
@@ -21,6 +21,13 @@
         <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></symbol>
         <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></symbol>
         <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5"/></symbol>
+        <symbol id="tech-react" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="16" cy="16" rx="14" ry="5.5"/><ellipse cx="16" cy="16" rx="14" ry="5.5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="14" ry="5.5" transform="rotate(120 16 16)"/></g><circle cx="16" cy="16" r="2.5" fill="currentColor"/></symbol>
+        <symbol id="tech-next" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 23V9l17 19M22 9v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+        <symbol id="tech-typescript" viewBox="0 0 32 32"><rect x="1" y="1" width="30" height="30" rx="4" fill="currentColor"/><path d="M7 16h10m-5-1v12m15-10c-4-3-8-1-7 2 1 2 7 2 7 5 0 3-5 4-8 1" fill="none" stroke="#0c0d12" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+        <symbol id="tech-tailwind" viewBox="0 0 32 32"><path d="M16 7c-6 0-9 3-10 9 2-3 4-4 7-3 1.6.6 2.7 2.4 4.1 3.8C19.3 19 22 20 26 20c6 0 9-3 10-9-2 3-4 4-7 3-1.6-.6-2.7-2.4-4.1-3.8C22.7 8 20 7 16 7ZM6 16c-6 0-9 3-10 9 2-3 4-4 7-3 1.6.6 2.7 2.4 4.1 3.8C9.3 28 12 29 16 29c6 0 9-3 10-9-2 3-4 4-7 3-1.6-.6-2.7-2.4-4.1-3.8C12.7 17 10 16 6 16Z" fill="currentColor" transform="translate(4 0) scale(.75)"/></symbol>
+        <symbol id="tech-supabase" viewBox="0 0 32 32"><path d="M18 2 4 19h13V2Z" fill="currentColor"/><path d="M14 30 28 13H15v17Z" fill="currentColor" opacity=".65"/></symbol>
+        <symbol id="icon-burger" viewBox="0 0 24 24"><path d="M4 10c0-10 16-10 16 0H4Zm-1 4h18M4 18h16v2H4v-2Z"/><path d="m5 14 3 2 4-2 4 2 3-2M9 6h.01M15 6h.01"/></symbol>
+        <symbol id="icon-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="m8 8 13 13M8 16 21 3M12 12h.01"/></symbol>
     </svg>
 
     <header class="site-header">
@@ -43,14 +50,15 @@
     <main id="conteudo">
         <section class="hero container" id="inicio" aria-labelledby="hero-title">
             <div class="hero-copy">
-                <p class="eyebrow"><span class="status-dot"></span> CRIATIVIDADE ENCONTRA CÓDIGO</p>
+                <p class="eyebrow"><span class="status-dot"></span> WEB DEVELOPER</p>
                 <h1 id="hero-title">Sua ideia.<br>Uma nova<br><span>realidade digital.</span></h1>
                 <p class="hero-description">Design que chama atenção. Experiências que fazem sentido. Transformo suas ideias em uma presença digital com personalidade.</p>
+                <p class="hero-stack">React <span aria-hidden="true">•</span> Next.js <span aria-hidden="true">•</span> TypeScript <span aria-hidden="true">•</span> Tailwind <span aria-hidden="true">•</span> Supabase</p>
                 <div class="hero-actions">
                     <a class="button button-primary" href="#projetos">Explore meu trabalho <svg class="icon"><use href="#icon-arrow"/></svg></a>
                     <a class="text-link" href="#contato">Vamos conversar <svg class="icon"><use href="#icon-diagonal"/></svg></a>
                 </div>
-                <div class="hero-note"><span class="note-line"></span> Feito com criatividade, cuidado e código.</div>
+                <div class="hero-note"><span class="note-line"></span> <span lang="en">Building digital experiences.</span></div>
             </div>
             <div class="hero-visual">
                 <span class="portrait-outline" aria-hidden="true"></span>
@@ -58,7 +66,13 @@
                     <img src="design.png" alt="Retrato de Luis Henrique" width="769" height="813" fetchpriority="high">
                     <div class="portrait-caption"><span>LUIS HENRIQUE</span><span>DEV & CRIATIVO <svg class="icon"><use href="#icon-star"/></svg></span></div>
                 </div>
-                <div class="code-badge" aria-hidden="true"><svg class="icon"><use href="#icon-code"/></svg><span>ideia → código</span></div>
+                <ul class="floating-technologies" aria-label="Tecnologias com que trabalho">
+                    <li class="floating-tech tech-react"><svg class="tech-icon" aria-hidden="true"><use href="#tech-react"/></svg><span>React</span></li>
+                    <li class="floating-tech tech-next"><svg class="tech-icon" aria-hidden="true"><use href="#tech-next"/></svg><span>Next.js</span></li>
+                    <li class="floating-tech tech-typescript"><svg class="tech-icon" aria-hidden="true"><use href="#tech-typescript"/></svg><span>TypeScript</span></li>
+                    <li class="floating-tech tech-tailwind"><svg class="tech-icon" aria-hidden="true"><use href="#tech-tailwind"/></svg><span>Tailwind</span></li>
+                    <li class="floating-tech tech-supabase"><svg class="tech-icon" aria-hidden="true"><use href="#tech-supabase"/></svg><span>Supabase</span></li>
+                </ul>
                 <span class="visual-index" aria-hidden="true">01 / UM POUCO DE MIM</span>
             </div>
         </section>
@@ -95,6 +109,7 @@
                 <h2 id="about-title">Muito prazer,<br>sou Luis Henrique<span class="accent">.</span></h2>
                 <p>Sou estudante de Ciências e Tecnologia na UFRN e um entusiasta quando se trata de aprender novas tecnologias e aplicar em novos projetos.</p>
                 <p>Adoro desafios. A sensação de desbravar novas linguagens e técnicas me deixa muito empolgado. Criatividade, uma interface intuitiva e atenção aos detalhes fazem parte do meu jeito de trabalhar.</p>
+                <p>Trabalho com React, Next.js, TypeScript, Tailwind e Supabase para transformar ideias em experiências digitais.</p>
                 <p class="about-invitation">Me mande sua ideia. Vamos dar vida a ela.</p>
                 <div class="social-links" aria-label="Redes sociais">
                     <a href="https://github.com/eurickzin" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon"><use href="#icon-diagonal"/></svg></a>
@@ -117,11 +132,41 @@
                         <p class="project-description">Este portfólio: um lugar para apresentar minhas ideias, meu trabalho e o que vem por aí.</p>
                         <ul class="tags" aria-label="Tecnologias do portfólio"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
                     </article>
-                    <article class="project-card upcoming-project">
-                        <div class="project-art upcoming-art" aria-hidden="true"><div class="blueprint-grid"></div><svg class="icon"><use href="#icon-star"/></svg><span class="upcoming-word">O próximo<br><em>capítulo.</em></span><span class="project-status">EM CONSTRUÇÃO</span></div>
-                        <div class="project-info"><div><span class="project-category">NOVAS IDEIAS</span><h3>Mais projetos a caminho</h3></div><span class="project-number" aria-hidden="true">02</span></div>
-                        <p class="project-description">Este espaço está crescendo. Em breve, novas experiências e desafios vão aparecer por aqui.</p>
-                        <span class="coming-soon">Em desenvolvimento <span class="small-dot"></span></span>
+                    <article class="project-card client-project">
+                        <div class="project-art client-art burger-art" aria-hidden="true">
+                            <div class="project-art-grid"></div>
+                            <span class="art-kicker">CARDÁPIO DIGITAL</span>
+                            <strong class="art-title">Pontilhão<br><em>Burguer.</em></strong>
+                            <svg class="icon art-symbol"><use href="#icon-burger"/></svg>
+                            <span class="art-caption">Sabor que também chega pela tela.</span>
+                        </div>
+                        <div class="project-info"><div><span class="project-category">GASTRONOMIA & EXPERIÊNCIA DIGITAL</span><h3>Pontilhão Burguer</h3></div><a class="project-link" href="https://pontilhaoburguer.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o cardápio digital Pontilhão Burguer em nova aba"><svg class="icon"><use href="#icon-diagonal"/></svg></a></div>
+                        <p class="project-description">Cardápio digital para apresentar os produtos da hamburgueria em uma experiência simples e acessível.</p>
+                        <a class="text-link project-visit" href="https://pontilhaoburguer.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Acessar projeto Pontilhão Burguer em nova aba">Acessar projeto <svg class="icon"><use href="#icon-diagonal"/></svg></a>
+                    </article>
+                    <article class="project-card client-project">
+                        <div class="project-art client-art barber-art" aria-hidden="true">
+                            <div class="project-art-grid"></div>
+                            <span class="art-kicker">AGENDAMENTO PARA BARBEARIA</span>
+                            <strong class="art-title">Na<br><em>Régua+</em></strong>
+                            <svg class="icon art-symbol"><use href="#icon-scissors"/></svg>
+                            <span class="art-caption">O próximo corte começa aqui.</span>
+                        </div>
+                        <div class="project-info"><div><span class="project-category">SERVIÇOS & AGENDAMENTO</span><h3>Na Régua+</h3></div><a class="project-link" href="https://sistemadeagendamento-barbearia.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Na Régua+, sistema de agendamento para barbearia, em nova aba"><svg class="icon"><use href="#icon-diagonal"/></svg></a></div>
+                        <p class="project-description">Sistema de agendamento para barbearia, pensado para facilitar a organização dos horários e a conexão com os clientes.</p>
+                        <a class="text-link project-visit" href="https://sistemadeagendamento-barbearia.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Acessar projeto Na Régua+ em nova aba">Acessar projeto <svg class="icon"><use href="#icon-diagonal"/></svg></a>
+                    </article>
+                    <article class="project-card client-project">
+                        <div class="project-art client-art nail-art" aria-hidden="true">
+                            <div class="nail-orbit"></div>
+                            <span class="art-kicker">NAIL DESIGNER</span>
+                            <strong class="art-title">Luciana<br><em>Correia.</em></strong>
+                            <svg class="icon art-symbol"><use href="#icon-star"/></svg>
+                            <span class="art-caption">Beleza em cada detalhe.</span>
+                        </div>
+                        <div class="project-info"><div><span class="project-category">BELEZA & PORTFÓLIO PROFISSIONAL</span><h3>Luciana Correia</h3></div><a class="project-link" href="https://desingdeunhas-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o portfólio de Luciana Correia, Nail Designer, em nova aba"><svg class="icon"><use href="#icon-diagonal"/></svg></a></div>
+                        <p class="project-description">Portfólio profissional de uma Nail Designer, com uma apresentação dedicada ao seu trabalho e à sua identidade.</p>
+                        <a class="text-link project-visit" href="https://desingdeunhas-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Acessar projeto Luciana Correia Nail Designer em nova aba">Acessar projeto <svg class="icon"><use href="#icon-diagonal"/></svg></a>
                     </article>
                 </div>
             </div>
